@@ -5,132 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Di tích lịch sử tỉnh Bến Tre</title>
     <style>
-        /* Reset và chuẩn hóa các thuộc tính mặc định */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /<style>
+    /* Reset và chuẩn hóa các thuộc tính mặc định */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            background-image: url('https://mia.vn/media/uploads/blog-du-lich/du-lich-xanh-ben-tre-va-nhung-trai-nghiem-khong-the-bo-lo-2-1667807248.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        background-image: url('https://mia.vn/media/uploads/blog-du-lich/du-lich-xanh-ben-tre-va-nhung-trai-nghiem-khong-the-bo-lo-2-1667807248.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
 
-        /* Header */
-        header {
-            background-color: rgba(0, 105, 92, 0.8);  
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
-        }
+    /* Header */
+    header {
+        background-color: rgba(0, 105, 92, 0.8);
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+    }
 
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
+    header h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        font-family: 'Verdana', sans-serif;  /* Thêm phông chữ cho tiêu đề */
+    }
 
-        /* Navbar */
-        nav ul {
-            list-style: none;
-            padding: 10px 0;
-            display: flex;
-            justify-content: center;
-        }
+    /* Navbar */
+    nav ul {
+        list-style: none;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+    }
 
-        nav ul li {
-            margin: 0 15px;
-        }
+    nav ul li {
+        margin: 0 15px;
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
+    nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
 
-        nav ul li a:hover {
-            background: #ffeb3b;
-            color: #00695c;
-        }
+    nav ul li a:hover {
+        background: #ffeb3b;
+        color: #00695c;
+    }
 
-        /* Căn giữa phần hình ảnh và thông tin */
+    /* Căn giữa phần hình ảnh và thông tin */
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        gap: 20px;
+    }
+
+    .image, .info {
+        width: 100%;
+        max-width: 700px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9);  /* Sáng hơn để nổi bật trên nền */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: #333;  /* Chữ màu tối cho dễ đọc */
+    }
+
+    /* Hình ảnh */
+    .image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    /* Thông tin */
+    .info h2 {
+        margin-bottom: 10px;
+        color: #00695c;
+        font-family: 'Verdana', sans-serif;  /* Phông chữ khác cho phần tiêu đề thông tin */
+    }
+
+    .info p {
+        color: #555;
+        line-height: 1.6;
+        font-size: 1.1rem;
+        font-family: 'Georgia', serif;  /* Phông chữ dễ đọc hơn */
+    }
+
+    /* Bản đồ */
+    .map-container {
+        margin-top: 40px;
+        width: 100%;
+        max-width: 700px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
         .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-            gap: 20px;
+            gap: 10px;
         }
+    }
 
-        .image, .info {
-            width: 100%;
-            max-width: 700px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    /* Tăng độ tương phản chữ */
+    .image img, .info img {
+        width: 100%;
+        height: auto; 
+        border-radius: 8px;
+    }
 
-        /* Hình ảnh */
-        .image img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+    /* Chỉnh sửa màu sắc và font chữ cho các đoạn văn */
+    p {
+        color: #333;  /* Chữ tối để dễ đọc trên nền sáng */
+        font-size: 1rem;
+        line-height: 1.6;
+    }
 
-        /* Thông tin */
-        .info h2 {
-            margin-bottom: 10px;
-            color: #00695c;
-        }
+</style>
 
-        .info p {
-            color: #555;
-        }
-
-        /* Bản đồ */
-        .map-container {
-            margin-top: 40px; /* Đưa bản đồ xuống dưới */
-            width: 100%;
-            max-width: 700px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .content {
-                gap: 10px;
-            }
-        }
-/* Hình ảnh */
-.image img, .info img {
-    width: 100%;
-    height: auto; /* Đảm bảo tỷ lệ khung hình */
-    border-radius: 8px;
-}
 
     </style>
 </head>
@@ -162,10 +180,6 @@ Cuộc khởi nghĩa Đồng Khởi là một trong những phong trào đấu t
 Khu di tích Đồng Khởi Bến Tre được bảo tồn và phát triển thành một điểm du lịch lịch sử, thu hút đông đảo du khách tham quan, tìm hiểu về sự kiện lịch sử quan trọng này. Di tích bao gồm các công trình như nhà tưởng niệm, các bia đá ghi lại những sự kiện quan trọng, các hiện vật gắn liền với cuộc khởi nghĩa. Bên cạnh đó, khu di tích còn có các hoạt động giáo dục truyền thống, giúp thế hệ trẻ hiểu rõ hơn về lịch sử và tinh thần yêu nước của cha ông.
    <img src="https://thamhiemmekong.com/wp-content/uploads/2020/06/khuditichdongkhoibentre1.jpg" alt="Hình ảnh 3">
 Di tích Đồng Khởi không chỉ là nơi lưu giữ ký ức về một thời kỳ hào hùng, mà còn là biểu tượng của ý chí bất khuất và lòng yêu nước nồng nàn của nhân dân Bến Tre, đóng góp vào thắng lợi chung của cuộc kháng chiến chống Mỹ.</p>
-            <video width="100%" height="auto" controls autoplay muted>
-                <source src="video/dongkhoi.mp4" type="video/mp4">
-                Trình duyệt của bạn không hỗ trợ thẻ video.
-            </video>
         </div>
 
         <!-- Bản đồ -->
@@ -196,10 +210,6 @@ Tôn vinh nữ tướng Nguyễn Thị Định: Nhà lưu niệm nhằm tôn vin
 <strong>3.</strong> Lịch sử và ý nghĩa của khu di tích:
 Nhà lưu niệm là một biểu tượng của lòng kiên cường, ý chí chiến đấu, không chỉ của Nguyễn Thị Định mà còn của toàn thể nhân dân Bến Tre trong cuộc kháng chiến chống Mỹ.
 Đây là một địa chỉ văn hóa quan trọng, thu hút nhiều khách du lịch và học sinh, sinh viên đến tham quan để hiểu rõ hơn về tinh thần cách mạng, lòng yêu nước và những hy sinh của các thế hệ đi trước trong sự nghiệp giải phóng dân tộc.</p>
-            <video width="100%" height="auto" controls autoplay muted>
-                <source src="video/nguyenthidinh.mp4" type="video/mp4">
-                Trình duyệt của bạn không hỗ trợ thẻ video.
-            </video>
         </div>
 
         <!-- Bản đồ -->
@@ -208,10 +218,8 @@ Nhà lưu niệm là một biểu tượng của lòng kiên cường, ý chí c
         </div>
     </div>
 </div>
+ <h2>Khu di tích Lãnh Binh Nguyễn Ngọc Thăng</h2>
     <div class="content">
-        <!-- Hình ảnh -->
-       
-        <!-- Thông tin -->
         <div class="info">
             <h2>Thông tin</h2>
             <p>Khu di tích Lãnh Binh Nguyễn Ngọc Thăng nằm tại xã Mỹ Thạnh, huyện Giồng Trôm, tỉnh Bến Tre. Đây là một di tích lịch sử quan trọng, nơi thờ cúng và tưởng niệm Nguyễn Ngọc Thăng, một vị tướng đầu tiên của Bến Tre, người đã tham gia cuộc kháng chiến chống thực dân Pháp.
@@ -229,10 +237,6 @@ Lễ hội: Hằng năm, vào ngày 15 tháng 5 âm lịch, lễ giỗ của Lã
 Khu di tích này không chỉ là nơi tưởng niệm một vị anh hùng dân tộc mà còn là điểm đến du lịch tâm linh, giúp du khách tìm hiểu thêm về lịch sử và văn hóa của vùng đất Bến Tre.
 
 Khu di tích Lãnh Binh Nguyễn Ngọc Thăng là một điểm du lịch tâm linh hấp dẫn, vừa mang đậm giá trị lịch sử vừa có sức thu hút với những ai yêu thích tìm hiểu về những anh hùng dân tộc.</p>
-            <video width="100%" height="auto" controls autoplay muted>
-                <source src="video/nguyenngocthang.mp4" type="video/mp4">
-                Trình duyệt của bạn không hỗ trợ thẻ video.
-            </video>
         </div>
 
         <!-- Bản đồ -->
@@ -240,8 +244,8 @@ Khu di tích Lãnh Binh Nguyễn Ngọc Thăng là một điểm du lịch tâm 
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75267.71560614834!2d106.42893024412234!3d10.179740543618122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310aa98e7b159257%3A0xc8d61700b227d7e5!2zxJDhu4FuIFRo4budIEzDo25oIEJpbmggVGjEg25n!5e1!3m2!1svi!2s!4v1738829838992!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
+    <h2>Khu di tích lăng mộ Nguyễn Đình Chiểu</h2>
     <div class="content">
-        <!-- Hình ảnh --><!-- Thông tin -->
         <div class="info">
             <h2>Thông tin</h2>
             <p>Khu di tích lăng mộ Nguyễn Đình Chiểu tọa lạc tại xã An Đức, huyện Ba Tri, tỉnh Bến Tre, là nơi thờ cúng và an táng nhà thơ, thầy thuốc và nhà giáo nổi tiếng Nguyễn Đình Chiểu. Đây cũng là nơi an nghỉ của vợ ông, Lê Thị Điền, và con gái Nguyễn Thị Ngọc Khuê (Sương Nguyệt Anh).
@@ -262,10 +266,6 @@ Lễ hội và ý nghĩa:
 Hằng năm, vào ngày 1 tháng 7 (ngày sinh của Nguyễn Đình Chiểu), khu di tích tổ chức lễ hội để tưởng nhớ công lao của ông. Đây là dịp để người dân và du khách tri ân và tưởng nhớ một nhân vật lịch sử quan trọng của dân tộc.
 <img src="https://www.baolongan.vn/image/news/2021/20210630/images/2(1).jpg" alt="Hình ảnh 3">
 Khu di tích lăng mộ Nguyễn Đình Chiểu không chỉ là một di tích lịch sử quan trọng mà còn là điểm đến du lịch tâm linh, giúp du khách hiểu thêm về cuộc đời và sự nghiệp của một nhà thơ yêu nước, đồng thời khám phá văn hóa và lịch sử đặc sắc của vùng đất Bến Tre.</p>
-            <video width="100%" height="auto" controls autoplay muted>
-                <source src="video/ng.mp4" type="video/mp4">
-                Trình duyệt của bạn không hỗ trợ thẻ video.
-            </video>
         </div>
 
         <!-- Bản đồ -->
@@ -273,8 +273,8 @@ Khu di tích lăng mộ Nguyễn Đình Chiểu không chỉ là một di tích 
            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75301.16232394277!2d106.5062073486328!3d10.036958300000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x319ff9b54e916023%3A0x1916c608d46cd3f8!2zxJDhu4FuIHRo4budIHbDoCBt4buZIERhbmggbmjDom4gTmd1eeG7hW4gxJDDrG5oIENoaeG7g3U!5e1!3m2!1svi!2s!4v1738830700698!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
+    <h2>Nhà thờ Họ Đạo Bến Tre </h2>
   <div class="content">
-        <!-- Hình ảnh --><!-- Thông tin -->
         <div class="info">
             <h2>Thông tin</h2>
             <p>Nhà thờ Họ Đạo Bến Tre là một trong những cơ sở tôn giáo lâu đời và quan trọng của cộng đồng Công giáo tại tỉnh Bến Tre. Đây là nơi thờ tự và sinh hoạt tôn giáo của người dân địa phương, đồng thời cũng đóng vai trò là trung tâm văn hóa, giáo dục trong cộng đồng.
@@ -292,10 +292,6 @@ Nhà thờ không chỉ là nơi thờ tự mà còn là một địa điểm si
 Nhà thờ Họ Đạo Bến Tre là một trong những điểm đến thu hút không chỉ tín đồ Công giáo mà còn du khách đến tham quan, chiêm bái. Nhà thờ thường xuyên tổ chức các hoạt động cộng đồng và lễ hội tôn giáo, tạo ra một không gian giao lưu, gắn kết cho cộng đồng địa phương.
 
 Nếu bạn có dịp đến Bến Tre, Nhà thờ Họ Đạo là một điểm đến lý tưởng để tìm hiểu về lịch sử, văn hóa tôn giáo và sự phát triển của cộng đồng Công giáo tại đây.</p>
-            <video width="100%" height="auto" controls autoplay muted>
-                <source src="video/ng.mp4" type="video/mp4">
-                Trình duyệt của bạn không hỗ trợ thẻ video.
-            </video>
         </div>
 
         <!-- Bản đồ -->
@@ -303,33 +299,29 @@ Nếu bạn có dịp đến Bến Tre, Nhà thờ Họ Đạo là một điểm
            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75267.71560614834!2d106.42893024412234!3d10.179740543618122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310aa98e7b159257%3A0xc8d61700b227d7e5!2zxJDhu4FuIFRo4budIEzDo25oIEJpbmggVGjEg25n!5e1!3m2!1svi!2s!4v1738829838992!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
+    <h2>Bảo tàng Bến Tre</h2>
       <div class="content">
-        <!-- Hình ảnh --><!-- Thông tin -->
         <div class="info">
             <h2>Thông tin</h2>
             <p>Lịch sử và Thành lập
 Bảo tàng Bến Tre được thành lập vào năm 1981, với mục đích bảo tồn, nghiên cứu và giới thiệu các hiện vật, tài liệu có giá trị về lịch sử, văn hóa và đời sống của người dân Bến Tre. Bảo tàng được đặt tại số 146 đường Hùng Vương, phường An Hội, thành phố Bến Tre.
-
+<img src="https://mia.vn/media/uploads/blog-du-lich/tham-bao-tang-ben-tre-kham-pha-lich-su-van-hoa-xu-dua-01-1668473926.jpeg" alt="Hình ảnh 2">
 Kiến trúc và Không gian
 Tòa nhà bảo tàng có kiến trúc mang đậm dấu ấn lịch sử, được xây dựng theo phong cách Pháp vào cuối thế kỷ 19. Đây là một tòa nhà hai tầng, với những cửa sổ hình vòm, mái lợp ngói, và không gian thoáng đãng hướng ra sông Bến Tre, tạo nên một khung cảnh đẹp và yên bình.
-
+<img src="https://scontent.iocvnpt.com/resources/portal//Images/BTE/superadminportal.bte/dia_diem/bao_tang_ben_tre/2022/01_bao_tang_tinh_959468025.jpg" alt="Hình ảnh 2">
 Các Bộ sưu tập và Triển lãm
 Bảo tàng Bến Tre trưng bày hàng trăm hiện vật, tài liệu, và hình ảnh phản ánh lịch sử phát triển của tỉnh Bến Tre, từ thời kỳ khai hoang, xây dựng vùng đất, cho đến quá trình đấu tranh giành độc lập và xây dựng đất nước. Các bộ sưu tập bao gồm:
-
+<img src="https://mia.vn/media/uploads/blog-du-lich/tham-bao-tang-ben-tre-kham-pha-lich-su-van-hoa-xu-dua-1668473936.jpg" alt="Hình ảnh 2">
 Hiện vật khảo cổ: Những đồ dùng, dụng cụ cổ xưa, chứng minh cho sự phát triển của người dân ở Bến Tre từ những thế kỷ trước.
 Tư liệu và hình ảnh lịch sử: Các bức ảnh, tài liệu về cuộc kháng chiến chống Pháp, chống Mỹ và quá trình phát triển của tỉnh Bến Tre.
 Bộ sưu tập về cây dừa: Bến Tre được biết đến là "xứ dừa", và bảo tàng có nhiều hiện vật liên quan đến cây dừa, một trong những đặc sản nổi tiếng của vùng.
 Hoạt động và Dịch vụ
 Bảo tàng không chỉ đơn thuần là nơi trưng bày hiện vật mà còn tổ chức các hoạt động giáo dục, triển lãm, sự kiện văn hóa để phục vụ nhu cầu tham quan và học tập của cộng đồng và du khách. Đây là một điểm đến lý tưởng để du khách tìm hiểu về lịch sử, văn hóa và đặc sản của Bến Tre, đặc biệt là cây dừa – biểu tượng của vùng đất này.</p>
-            <video width="100%" height="auto" controls autoplay muted>
-                <source src="video/dongkhoi.mp4" type="video/mp4">
-                Trình duyệt của bạn không hỗ trợ thẻ video.
-            </video>
         </div>
 
         <!-- Bản đồ -->
         <div class="map-container">
-          
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4698.3037609056655!2d106.37158217573194!3d10.23494476894653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310aa85c3fc00d0f%3A0x1107cf4ce5f17a01!2zQuG6o28gVGHMgG5nIFRpzIluaCBC4bq_biBUcmU!5e1!3m2!1svi!2s!4v1739090141679!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </body>
