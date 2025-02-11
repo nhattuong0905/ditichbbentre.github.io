@@ -6,136 +6,158 @@
     <title>Bình luận có Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <style>* 
-body { 
-    font-family: 'Noto Sans', sans-serif; 
-    background: url('https://mia.vn/media/uploads/blog-du-lich/du-lich-xanh-ben-tre-va-nhung-trai-nghiem-khong-the-bo-lo-2-1667807248.jpg') no-repeat center center fixed; 
+
+    <style>
+   /* ----- Tổng thể ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background: url('https://xdcs.cdnchinhphu.vn/446259493575335936/2023/11/20/bentre-17004677444331945175130.jpg') no-repeat center center fixed;
     background-size: cover;
-    text-align: center; 
-    padding: 20px; 
-}
-{ 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-body { 
-    font-family: 'Noto Sans', sans-serif; 
-    background: #f0f2f5; 
-    text-align: center; 
-    padding: 20px; 
+/* Lớp phủ tối giúp chữ dễ đọc */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
-.container { 
-    width: 90%; 
-    max-width: 500px; 
-    margin: auto; 
-    background: white; 
-    padding: 20px; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
-    margin-bottom: 20px; 
+/* ----- Container ----- */
+.container {
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
 }
 
-h1 { 
-    font-weight: 700; 
-    color: #007bff; 
-    text-transform: uppercase; 
-    margin-bottom: 15px; 
-    font-size: 22px;
+/* Tiêu đề chính */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffcc00;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 3px 3px 6px rgba(255, 204, 0, 0.7);
 }
 
-input, textarea { 
-    width: 100%; 
-    padding: 12px; 
-    margin: 10px 0; 
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
-    font-size: 16px; 
-    transition: all 0.3s ease-in-out;
+/* Input & Textarea */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #fff;
+    color: #333;
 }
 
-input:focus, textarea:focus { 
-    border-color: #007bff; 
-    outline: none; 
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+input:focus, textarea:focus {
+    border-color: #ff6600;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.7);
 }
 
-button { 
-    background: #007bff; 
-    color: white; 
-    padding: 12px; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    font-size: 16px; 
-    font-weight: bold; 
-    width: 100%; 
-    margin-top: 10px; 
-    transition: all 0.3s ease;
+/* Nút bấm */
+button {
+    background: linear-gradient(90deg, #ff6600, #ffcc00);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    margin-top: 10px;
+    transition: 0.3s;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-button:hover { 
-    background: #0056b3; 
+button:hover {
+    background: linear-gradient(90deg, #ff4500, #ff9900);
+    box-shadow: 0 0 15px rgba(255, 153, 0, 0.8);
 }
 
-.comment-item { 
-    background: white; 
-    border-left: 5px solid #007bff; 
-    margin: 10px 0; 
-    padding: 10px; 
-    border-radius: 5px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    position: relative; 
-    transition: transform 0.2s ease-in-out;
+/* ----- Bình luận ----- */
+.comment-item {
+    background: #f9f9f9;
+    color: #333;
+    border-left: 5px solid #ff6600;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: left;
 }
 
-.comment-item:hover { 
-    transform: scale(1.02); 
+/* Cải thiện font chữ trong bình luận */
+.comment-item strong {
+    font-weight: bold;
+    color: #ff6600;
+    font-size: 16px;
 }
 
-.delete-btn { 
-    position: absolute; 
-    top: 10px; 
-    right: 10px; 
-    background: red; 
-    color: white; 
-    border: none; 
-    padding: 5px 8px; 
-    font-size: 12px; 
-    border-radius: 3px; 
-    cursor: pointer; 
-    display: none; 
-    transition: background 0.3s ease;
+.comment-item .comment-meta {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
 }
 
-.delete-btn:hover { 
-    background: darkred; 
+/* Nút xóa (Admin) */
+.delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: none;
+    transition: 0.3s;
 }
 
-.logout-btn { 
-    background: darkred; 
-    display: none; 
+.delete-btn:hover {
+    background: darkred;
 }
 
-.comment-meta { 
-    font-size: 12px; 
-    color: gray; 
-    margin-top: 5px; 
+/* Footer */
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+    text-shadow: none;
+    color: #ddd;
 }
     </style>
 </head>
 <body>
 
-    <!-- Đăng nhập Admin -->
-    <div class="container" id="adminLogin">
-        <h1>Đăng nhập Admin</h1>
-        <input type="password" id="adminPass" placeholder="Nhập mật khẩu">
-        <button onclick="adminLogin()">Đăng nhập</button>
-    </div>
+    <h1>nếu thấy yêu thích hoặc góp ý gì hãy để lại bình luận để chúng tôi được biết😗😗😗</h1>
 
-    <!-- Phần bình luận -->
+    <!-- Form Bình luận -->
     <div class="container" id="commentSection">
         <h1>Bình luận</h1>
         <form id="commentForm">
@@ -148,16 +170,20 @@ button:hover {
             <h2>Các bình luận</h2>
             <ul id="commentsList"></ul>
         </div>
-        <button id="logoutBtn" class="logout-btn" onclick="adminLogout()">Đăng xuất Admin</button>
     </div>
 
-    <script>
-        // Thay thế bằng thông tin EmailJS của bạn
-        const USER_ID = "DvXqS09eAE2aMkR05";  // Public Key từ EmailJS
-        const SERVICE_ID = "service_3k3ggd9";  // Service ID từ EmailJS
-        const TEMPLATE_ID = "template_6n7f8qs";  // Template ID từ EmailJS
+    <!-- Đăng nhập Admin -->
+    <div class="container" id="adminLogin">
+        <h1>Đăng nhập Admin</h1>
+        <input type="password" id="adminPass" placeholder="Nhập mật khẩu">
+        <button onclick="adminLogin()">Đăng nhập</button>
+    </div>
 
-        emailjs.init(USER_ID); 
+    <button id="logoutBtn" onclick="adminLogout()">Đăng xuất</button>
+
+    <script>
+        // Cấu hình EmailJS
+        emailjs.init("DvXqS09eAE2aMkR05");
 
         let isAdmin = sessionStorage.getItem("isAdmin") === "true";
 
@@ -165,7 +191,7 @@ button:hover {
             let pass = document.getElementById("adminPass").value;
             if (pass === "goatmessi") {
                 sessionStorage.setItem("isAdmin", "true");
-                location.reload(); // Tải lại trang ngay sau khi đăng nhập
+                location.reload();
             } else {
                 alert("❌ Sai mật khẩu!");
             }
@@ -173,10 +199,11 @@ button:hover {
 
         function adminLogout() {
             sessionStorage.removeItem("isAdmin");
-            location.reload(); // Tải lại trang ngay sau khi đăng xuất
+            location.reload();
         }
 
         function updateAdminUI() {
+            document.getElementById("adminLogin").style.display = isAdmin ? "none" : "block";
             document.getElementById("logoutBtn").style.display = isAdmin ? "block" : "none";
             document.querySelectorAll(".delete-btn").forEach(btn => {
                 btn.style.display = isAdmin ? "block" : "none";
@@ -195,7 +222,7 @@ button:hover {
                 saveComment(commentData);
                 addCommentToDOM(commentData);
                 sendCommentEmail(commentData);
-                document.getElementById("commentForm").reset(); // Xóa nội dung form
+                document.getElementById("commentForm").reset();
             }
         });
 
@@ -209,7 +236,7 @@ button:hover {
             let commentList = document.getElementById("commentsList");
             let listItem = document.createElement("li");
             listItem.className = "comment-item";
-            listItem.innerHTML = `<strong>${commentData.from_name}:</strong> ${commentData.message}
+            listItem.innerHTML = `<strong>${commentData.from_name}:</strong> ${commentData.message} 
                                   <div class="comment-meta">${commentData.timestamp}</div>`;
 
             let deleteBtn = document.createElement("button");
@@ -230,25 +257,21 @@ button:hover {
         }
 
         function sendCommentEmail(commentData) {
-            emailjs.send(SERVICE_ID, TEMPLATE_ID, commentData)
-                .then(response => {
-                    console.log("✅ Email đã gửi:", response);
-                    alert("📧 Bình luận đã được gửi tới admin!");
-                })
-                .catch(error => {
-                    console.error("❌ Lỗi gửi email:", error);
-                    alert("❌ Gửi email thất bại.");
-                });
+            emailjs.send("service_3k3ggd9", "template_6n7f8qs", commentData)
+                .then(response => alert("📧 Bình luận đã gửi!"))
+                .catch(error => alert("❌ Gửi email thất bại."));
         }
 
         function loadComments() {
             let comments = JSON.parse(localStorage.getItem("comments")) || [];
-            comments.forEach(commentData => addCommentToDOM(commentData));
+            comments.forEach(addCommentToDOM);
         }
 
         loadComments();
         updateAdminUI();
     </script>
-
+<footer>
+        <p>Lưu ý:mọi bình luận không hợp tiêu chuẩn cộng đồng đề sẽ bị xoá!!</p>
+    </footer>
 </body>
 </html>
