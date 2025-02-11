@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bình luận có Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>* 
+body { 
+    font-family: 'Noto Sans', sans-serif; 
+    background: url('https://mia.vn/media/uploads/blog-du-lich/du-lich-xanh-ben-tre-va-nhung-trai-nghiem-khong-the-bo-lo-2-1667807248.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    text-align: center; 
+    padding: 20px; 
+}
+{ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Noto Sans', sans-serif; 
+    background: #f0f2f5; 
+    text-align: center; 
+    padding: 20px; 
+}
+
+.container { 
+    width: 90%; 
+    max-width: 500px; 
+    margin: auto; 
+    background: white; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    margin-bottom: 20px; 
+}
+
+h1 { 
+    font-weight: 700; 
+    color: #007bff; 
+    text-transform: uppercase; 
+    margin-bottom: 15px; 
+    font-size: 22px;
+}
+
+input, textarea { 
+    width: 100%; 
+    padding: 12px; 
+    margin: 10px 0; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus, textarea:focus { 
+    border-color: #007bff; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button { 
+    background: #007bff; 
+    color: white; 
+    padding: 12px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    font-weight: bold; 
+    width: 100%; 
+    margin-top: 10px; 
+    transition: all 0.3s ease;
+}
+
+button:hover { 
+    background: #0056b3; 
+}
+
+.comment-item { 
+    background: white; 
+    border-left: 5px solid #007bff; 
+    margin: 10px 0; 
+    padding: 10px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    position: relative; 
+    transition: transform 0.2s ease-in-out;
+}
+
+.comment-item:hover { 
+    transform: scale(1.02); 
+}
+
+.delete-btn { 
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    background: red; 
+    color: white; 
+    border: none; 
+    padding: 5px 8px; 
+    font-size: 12px; 
+    border-radius: 3px; 
+    cursor: pointer; 
+    display: none; 
+    transition: background 0.3s ease;
+}
+
+.delete-btn:hover { 
+    background: darkred; 
+}
+
+.logout-btn { 
+    background: darkred; 
+    display: none; 
+}
+
+.comment-meta { 
+    font-size: 12px; 
+    color: gray; 
+    margin-top: 5px; 
+}
+    </style>
+</head>
+<body>
+
+    <!-- Đăng nhập Admin -->
+    <div class="container" id="adminLogin">
+        <h1>Đăng nhập Admin</h1>
+        <input type="password" id="adminPass" placeholder="Nhập mật khẩu">
+        <button onclick="adminLogin()">Đăng nhập</button>
+    </div>
+
+    <!-- Phần bình luận -->
+    <div class="container" id="commentSection">
+        <h1>Bình luận</h1>
+        <form id="commentForm">
+            <input type="text" id="name" placeholder="Tên của bạn" required>
+            <input type="email" id="email" placeholder="Email của bạn" required>
+            <textarea id="comment" placeholder="Nhập bình luận..." required></textarea>
+            <button type="submit">Gửi bình luận</button>
+        </form>
+        <div id="commentsSection">
+            <h2>Các bình luận</h2>
+            <ul id="commentsList"></ul>
+        </div>
+        <button id="logoutBtn" class="logout-btn" onclick="adminLogout()">Đăng xuất Admin</button>
+    </div>
+
+    <script>
+        // Thay thế bằng thông tin EmailJS của bạn
+        const USER_ID = "DvXqS09eAE2aMkR05";  // Public Key từ EmailJS
+        const SERVICE_ID = "service_3k3ggd9";  // Service ID từ EmailJS
+        const TEMPLATE_ID = "template_6n7f8qs";  // Template ID từ EmailJS
+
+        emailjs.init(USER_ID); 
+
+        let isAdmin = sessionStorage.getItem("isAdmin") === "true";
+
+        function adminLogin() {
+            let pass = document.getElementById("adminPass").value;
+            if (pass === "goatmessi") {
+                sessionStorage.setItem("isAdmin", "true");
+                location.reload(); // Tải lại trang ngay sau khi đăng nhập
+            } else {
+                alert("❌ Sai mật khẩu!");
+            }
+        }
+
+        function adminLogout() {
+            sessionStorage.removeItem("isAdmin");
+            location.reload(); // Tải lại trang ngay sau khi đăng xuất
+        }
+
+        function updateAdminUI() {
+            document.getElementById("logoutBtn").style.display = isAdmin ? "block" : "none";
+            document.querySelectorAll(".delete-btn").forEach(btn => {
+                btn.style.display = isAdmin ? "block" : "none";
+            });
+        }
+
+        document.getElementById("commentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let comment = document.getElementById("comment").value.trim();
+            let timestamp = new Date().toLocaleString();
+
+            if (name && email && comment) {
+                let commentData = { from_name: name, reply_to: email, message: comment, timestamp };
+                saveComment(commentData);
+                addCommentToDOM(commentData);
+                sendCommentEmail(commentData);
+                document.getElementById("commentForm").reset(); // Xóa nội dung form
+            }
+        });
+
+        function saveComment(commentData) {
+            let comments = JSON.parse(localStorage.getItem("comments")) || [];
+            comments.push(commentData);
+            localStorage.setItem("comments", JSON.stringify(comments));
+        }
+
+        function addCommentToDOM(commentData) {
+            let commentList = document.getElementById("commentsList");
+            let listItem = document.createElement("li");
+            listItem.className = "comment-item";
+            listItem.innerHTML = `<strong>${commentData.from_name}:</strong> ${commentData.message}
+                                  <div class="comment-meta">${commentData.timestamp}</div>`;
+
+            let deleteBtn = document.createElement("button");
+            deleteBtn.className = "delete-btn";
+            deleteBtn.textContent = "Xóa";
+            deleteBtn.onclick = function () { removeComment(listItem, commentData); };
+            deleteBtn.style.display = isAdmin ? "block" : "none";
+
+            listItem.appendChild(deleteBtn);
+            commentList.appendChild(listItem);
+        }
+
+        function removeComment(listItem, commentData) {
+            listItem.remove();
+            let comments = JSON.parse(localStorage.getItem("comments")) || [];
+            comments = comments.filter(c => c.message !== commentData.message);
+            localStorage.setItem("comments", JSON.stringify(comments));
+        }
+
+        function sendCommentEmail(commentData) {
+            emailjs.send(SERVICE_ID, TEMPLATE_ID, commentData)
+                .then(response => {
+                    console.log("✅ Email đã gửi:", response);
+                    alert("📧 Bình luận đã được gửi tới admin!");
+                })
+                .catch(error => {
+                    console.error("❌ Lỗi gửi email:", error);
+                    alert("❌ Gửi email thất bại.");
+                });
+        }
+
+        function loadComments() {
+            let comments = JSON.parse(localStorage.getItem("comments")) || [];
+            comments.forEach(commentData => addCommentToDOM(commentData));
+        }
+
+        loadComments();
+        updateAdminUI();
+    </script>
+
+</body>
+</html>
