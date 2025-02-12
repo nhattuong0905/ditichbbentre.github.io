@@ -7,10 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Import Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-        /* Reset mặc định */
         * {
             margin: 0;
             padding: 0;
@@ -18,8 +16,7 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        /* Body */
-         body {
+        body {
             background: url('https://mia.vn/media/uploads/blog-du-lich/du-lich-xanh-ben-tre-va-nhung-trai-nghiem-khong-the-bo-lo-2-1667807248.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
@@ -27,7 +24,6 @@
             padding: 50px 20px;
         }
 
-        /* Overlay để làm dịu background */
         body::before {
             content: "";
             position: fixed;
@@ -35,148 +31,80 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.5);
             z-index: -1;
         }
 
-        /* Header */
         header {
-            background-color: rgba(0, 105, 92, 0.8); /* Thêm độ trong suốt */
+            background-color: rgba(0, 105, 92, 0.9);
             color: #fff;
             text-align: center;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-
-        /* Navbar */
-        nav ul {
-            list-style: none;
-            padding: 10px 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            background: #ffeb3b;
-            color: #00695c;
-        }
-
-        /* Sections */
-        section {
-            max-width: 900px;
-            margin: 40px auto;
-            background: rgba(255, 255, 255, 0.8); /* Thêm độ trong suốt cho nền */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #00695c;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        section p {
-            font-size: 1.1rem;
-            color: #555;
-            text-align: justify;
-            line-height: 1.8;
-        }
-
-        /* Danh sách di tích */
-        section ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        section ul li {
-            background: #e0f2f1;
-            padding: 10px;
-            margin: 8px 0;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
-        }
-
-        section ul li strong {
-            color: #004d40;
-        }
-
-        section ul li:hover {
-            transform: translateX(5px);
-            background: #b2dfdb;
-        }
-
-        /* Image styling */
-        .image-container {
-            text-align: center;
-            margin-top: 10px;
+            border-radius: 12px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
             margin-bottom: 20px;
         }
 
-        .image-container img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 8px;
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
         }
 
-        /* Footer */
+        section {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            color: #ffeb3b;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .benTreImage {
+            width: 45%;
+            max-width: 400px;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .benTreImage:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 1.2rem;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
         footer {
-            text-align: center;
-            background: #00695c;
-            color: white;
-            padding: 15px;
-            margin-top: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        footer p {
-            font-size: 1rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            nav ul li {
-                margin: 5px 0;
-            }
-
-            section {
-                padding: 15px;
-            }
+            background: rgba(0, 105, 92, 0.9);
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -193,32 +121,28 @@
             </ul>
         </nav>
     </header>
-<section>
-    <h2>Giới thiệu chung</h2>
-    <p>Bến Tre là tỉnh thuộc Đồng bằng sông Cửu Long, nổi tiếng với cây dừa và các di tích lịch sử quan trọng. Đây là vùng đất có bề dày văn hóa và truyền thống kiên cường trong các cuộc đấu tranh bảo vệ đất nước.</p>
-   <div class="video-container" style="max-width: 100%; margin-bottom: 20px; text-align: center;">
-        <video width="100%" height="auto" controls autoplay muted>
-    <source src="video/flycam.mp4" type="video/mp4">
-            </section>
-<section><img src="https://uploads.nguoidothi.net.vn/content/b04cf66c-26be-4483-a928-96ff27e8ea80.jpg" alt="xứ dừa"></section>
-<section id="about">    
-    <h2 class="highlight">Tìm hiểu khái quát về Tỉnh Bến Tre</h2>
 
-    <p class="subheading"><strong>Địa lý:</strong></p>
-
-    <p class="content">Bến Tre là một tỉnh thuộc vùng đồng bằng sông Cửu Long của Việt Nam, nằm ở cuối nguồn sông Tiền và sông Hàm Luông. Bến Tre nổi tiếng với tên gọi "xứ dừa" vì đây là vùng trồng dừa lớn nhất cả nước. Diện tích của Bến Tre là 2.394,7 km2, dân số khoảng 1,3 triệu người (năm 2019). Nơi này được bồi tụ phù sa của bốn nhánh sông Ba Lai, sông Hàm Luông, sông Tiền, sông Cổ Chiên.</p>
-
-    <h3 style="color: #ffeb3b;">Vị trí Bến Tre trên bản đồ</h3>
-
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d311980.96065055503!2d106.24525741063354!3d10.06572817805319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310aa85c0cbca79f%3A0xaa3c54e567317543!2zQuG6v24gVHJlLCBWaeG7h3QgTmFt!5e1!3m2!1svi!2s!4v1738668118094!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-    <p style="color: lawngreen;"><strong>Lịch sử tên gọi:</strong></p>
-
-    <p>Tên gọi Bến Tre xuất phát từ câu chuyện vào thế kỷ 17-18, khi lưu dân Việt từ miền Bắc và miền Trung di cư vào vùng đất phương Nam khai hoang, mở cõi. Khi đến vùng đất này, họ thấy có nhiều cây tre mọc hoang dại dọc bờ sông, bờ rạch nên gọi là Bến Tre.</p>
-</section>
     <section>
         <h2>Giới thiệu chung</h2>
-        <p>Bến Tre là tỉnh thuộc Đồng bằng sông Cửu Long, nổi tiếng với cây dừa và các di tích lịch sử quan trọng. Đây là vùng đất có bề dày văn hóa và truyền thống kiên cường trong các cuộc đấu tranh bảo vệ đất nước.</p>
+        <p>Bến Tre là tỉnh thuộc Đồng bằng sông Cửu Long, nổi tiếng với cây dừa và các di tích lịch sử quan trọng. Đây là vùng đất có bề dày văn hóa và truyền thống kiên cường trong các cuộc đấu tranh bảo vệ đất nước.</p> 
+        
+        <div class="image-container">
+            <img class="benTreImage" src="https://uploads.nguoidothi.net.vn/content/b04cf66c-26be-4483-a928-96ff27e8ea80.jpg" alt="Di tích Bến Tre">
+            <img class="benTreImage" src="https://imgcdn.tapchicongthuong.vn/tcct-media/24/5/6/xu-dua_663884786e5fe.jpg" alt="Di tích Bến Tre">
+            <img class="benTreImage" src="https://image.nhandan.vn/w800/Uploaded/2025/xqtamzsfdgzs/2023_12_05/anh-1-5-2190.jpg.webp" alt="Di tích Bến Tre">
+        </div>
+    </section>
+
+    <section id="about">    
+        <h2 class="highlight">Tìm hiểu khái quát về Tỉnh Bến Tre</h2>
+        <p class="subheading"><strong>Địa lý:</strong></p>
+        <p class="content">Bến Tre là một tỉnh thuộc vùng đồng bằng sông Cửu Long của Việt Nam, nằm ở cuối nguồn sông Tiền và sông Hàm Luông. Bến Tre nổi tiếng với tên gọi "xứ dừa" vì đây là vùng trồng dừa lớn nhất cả nước. Diện tích của Bến Tre là 2.394,7 km2, dân số khoảng 1,3 triệu người (năm 2019). Nơi này được bồi tụ phù sa của bốn nhánh sông Ba Lai, sông Hàm Luông, sông Tiền, sông Cổ Chiên.</p>
+
+        <h3 style="color: #ffeb3b;">Vị trí Bến Tre trên bản đồ</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d311980.96065055503!2d106.24525741063354!3d10.06572817805319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310aa85c0cbca79f%3A0xaa3c54e567317543!2zQuG6v24gVHJlLCBWaeG7h3QgTmFt!5e1!3m2!1svi!2s!4v1738668118094!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <p style="color: lawngreen;"><strong>Lịch sử tên gọi:</strong></p>
+        <p>Tên gọi Bến Tre xuất phát từ câu chuyện vào thế kỷ 17-18, khi lưu dân Việt từ miền Bắc và miền Trung di cư vào vùng đất phương Nam khai hoang, mở cõi. Khi đến vùng đất này, họ thấy có nhiều cây tre mọc hoang dại dọc bờ sông, bờ rạch nên gọi là Bến Tre.</p>
     </section>
 
     <section>
@@ -248,16 +172,15 @@
             </li>
             <li><strong>Nhà thờ Bến Tre:</strong> Một công trình kiến trúc tôn giáo đặc sắc, gắn liền với đời sống tín ngưỡng của người dân địa phương.
                <div class="image-container">
-                    <img src="https://giaophanvinhlong.net/hinhanh/tintuc/z5275241733311_Ho-Dao-Ben-Tre.jpeg" alt="nhà thờ bến tre">
+                    <img src="https://giaophanvinhlong.net/hinhanh/tintuc/z5275241733311_Ho-Dao-Ben-Tre.jpeg" alt="Nhà thờ Bến Tre">
                 </div>
             </li>
             <li><strong>Bảo tàng tỉnh Bến Tre:</strong> Bảo tàng được biết đến với vai trò lưu giữ và trưng bày các tranh ảnh, hiện vật về lịch sử tự nhiên - xã hội nhằm phục vụ nhu cầu nghiên cứu, giáo dục, tham quan cũng như hưởng thụ văn hóa.
                <div class="image-container">
-                    <img src="https://scontent.iocvnpt.com/resources/portal//Images/BTE/superadminportal.bte/dia_diem/bao_tang_ben_tre/z2504215324167_f9af4180895d016949d443b635398ed2_655186043.jpg" alt="bảo tàn bén tre">
+                    <img src="https://scontent.iocvnpt.com/resources/portal//Images/BTE/superadminportal.bte/dia_diem/bao_tang_ben_tre/z2504215324167_f9af4180895d016949d443b635398ed2_655186043.jpg" alt="Bảo tàng Bến Tre">
                 </div>
             </li>
         </ul>
-
     </section>
 
     <section>
@@ -266,22 +189,29 @@
         <ul>
             <li><strong>Đình An Hội:</strong> Một trong những ngôi đình lâu đời, gắn liền với đời sống tín ngưỡng và lễ hội truyền thống của người dân. 
                 <div class="image-container">
-                    <img src="https://mia.vn/media/uploads/blog-du-lich/dinh-an-hoi-khong-gian-tam-linh-tram-mac-tai-ben-tre-1667227691.jpg" alt="đình an hội">
-                </div></li>
-            <li><strong>Nhà cổ Huỳnh Phủ:</strong> Công trình kiến trúc độc đáo với phong cách Á – Âu, thể hiện sự giao thoa văn hóa.<div class="image-container">
-                    <img src="https://vnn-imgs-f.vgcloud.vn/2018/04/09/10/tham-nha-co-doc-nhat-o-ben-tre.JPG" alt="nhà cổ huỳnh phủ">
-                </div></li>
-            <li><strong>Chùa Viên Minh:</strong> Một trong những ngôi chùa cổ kính nhất Bến Tre, nơi gìn giữ nhiều giá trị văn hóa, lịch sử.<div class="image-container">
-                    <img src="https://www.vietfuntravel.com.vn/image/data/Blog/cam-nang/ve-ben-tre-tham-quan-chua-vien-minh/ve-ben-tre-tham-quan-chua-vien-minh-h1.jpg" alt="chùa viên minh">
-                </div></li>
-            <li><strong>Đình Phú Lễ:</strong> Là một trong những ngôi đình nổi tiếng tại Bến Tre, mang đậm giá trị văn hóa và lịch sử của người dân nơi đây.<div class="image-container">
-                    <img src="https://scontent.iocvnpt.com/resources/portal//Images/BTE/superadminportal.bte/dia_diem/van_hoa_lich_su/dinh_phu_le/dinh_phu_le_74749087.jpg" alt="đình phú lễ">
-                </div></li>
+                    <img src="https://mia.vn/media/uploads/blog-du-lich/dinh-an-hoi-khong-gian-tam-linh-tram-mac-tai-ben-tre-1667227691.jpg" alt="Đình An Hội">
+                </div>
+            </li>
+            <li><strong>Nhà cổ Huỳnh Phủ:</strong> Công trình kiến trúc độc đáo với phong cách Á – Âu, thể hiện sự giao thoa văn hóa.
+                <div class="image-container">
+                    <img src="https://vnn-imgs-f.vgcloud.vn/2018/04/09/10/tham-nha-co-doc-nhat-o-ben-tre.JPG" alt="Nhà cổ Huỳnh Phủ">
+                </div>
+            </li>
+            <li><strong>Chùa Viên Minh:</strong> Một trong những ngôi chùa cổ kính nhất Bến Tre, nơi gìn giữ nhiều giá trị văn hóa, lịch sử.
+                <div class="image-container">
+                    <img src="https://www.vietfuntravel.com.vn/image/data/Blog/cam-nang/ve-ben-tre-tham-quan-chua-vien-minh/ve-ben-tre-tham-quan-chua-vien-minh-h1.jpg" alt="Chùa Viên Minh">
+                </div>
+            </li>
+            <li><strong>Đình Phú Lễ:</strong> Là một trong những ngôi đình nổi tiếng của tỉnh Bến Tre, nơi tổ chức các lễ hội truyền thống.
+               <div class="image-container">
+                    <img src="https://media.vietnamplus.vn/images/7255a701687d11cb8c6bbc58a6c80785d5ad9fcea38ab1c09faba6892fdd9ada7eac599ed6640b56bae0633736ca98e0f6b1a68e6c2b9d62e7dce9ff61de90c2/0208dinhphule1-7173.jpg.webp" alt="Đình Phú Lễ">
+                </div>
+            </li>
         </ul>
     </section>
 
     <footer>
-        <p>Nhóm 4 12C1 xin chào.</p>
+        <p>&copy; 2025 Bến Tre. Tất cả các quyền được bảo vệ.</p>
     </footer>
 
 </body>
